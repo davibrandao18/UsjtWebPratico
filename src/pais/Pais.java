@@ -107,4 +107,16 @@ public class Pais {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deletarPais() {
+		String sqlDelete = "DELETE FROM pais WHERE id = ?";
+
+		try (Connection conn = obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
+			stm.setInt(1, getId());
+			stm.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
