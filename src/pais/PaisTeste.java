@@ -7,8 +7,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import testesunitarios.Cliente;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PaisTeste {
 	Pais pais, paisCopia;
@@ -28,7 +26,7 @@ public void inserindo() throws Exception  {
 public void test00Carregar() {
 	System.out.println("Carregar");
 	Pais esperado = new Pais(1, "Japão", 126440000, 377975);
-	Pais retorno = new Pais(1, null, null, null);
+	Pais retorno = new Pais();
 	retorno.carregarPaises();
 	assertEquals("Testa Inclusão", retorno, esperado);
 }
