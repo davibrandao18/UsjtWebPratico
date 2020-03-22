@@ -18,9 +18,9 @@ public class PaisTeste {
 public void inserindo() throws Exception  {
 	System.out.println("Inserindo");
 	pais = new Pais (id, "Japão", 126440000, 377975);
-	copia = new Pais (id, "Japão", 126440000, 377975);
+	paisCopia = new Pais (id, "Japão", 126440000, 377975);
 	System.out.println(pais);
-	System.out.println(copia);
+	System.out.println(paisCopia);
 	System.out.println(id);
 }
 
