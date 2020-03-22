@@ -63,7 +63,7 @@ public class Pais {
 		return "pais";
 	}
 	
-	//Conexão banco de dados
+	//Conexao banco de dados
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -72,7 +72,7 @@ public class Pais {
 		}
 	}
 	
-	// Obtendo conexão com o banco de dados
+	// Obtendo conexao com o banco de dados
 	public Connection obtemConexao() throws SQLException {
 		return DriverManager
 				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=''");
@@ -94,11 +94,17 @@ public class Pais {
 		}
 	}
 	
-	/*
-	public String vetorDePaises() {
-		String paises[] = {"Canada", "Canada", "Canada"}
- 		
-		return paises;
+	
+	public void inserirPais() {
+		String sqlInsert = "INSERT INTO pais (id,nome,populacao,area) VALUES (0, ?, ?, ?)";
+		try (Connection conn = obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
+			stm.setString(1, getNome());
+			stm.setLong(2, getPopulacao());
+			stm.setDouble(3, getArea());
+			stm.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	*/
 }
