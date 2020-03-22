@@ -85,8 +85,8 @@ public class Pais {
 		try (Connection conn = obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
 			stm.setString(1, getNome());
-			stm.setString(2, getFone());
-			stm.setString(3, getEmail());
+			stm.setLong(2, getPopulacao());
+			stm.setDouble(3, getArea());
 			stm.setInt(4, getId());
 			stm.execute();
 		} catch (Exception e) {
