@@ -1,5 +1,11 @@
 package pais;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Pais {
 	private int id;
 	private String nome;
@@ -55,6 +61,37 @@ public class Pais {
 	
 	public String paisComMenorArea() {
 		return "pais";
+	}
+	
+	//Conexão banco de dados
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	// Obtendo conexão com o banco de dados
+	public Connection obtemConexao() throws SQLException {
+		return DriverManager
+				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=''");
+	}
+	
+	//Atualizar
+	public void atualizar() {
+		String sqlUpdate = "UPDATE cliente SET nome=?, fone=?, email=? WHERE id=?";
+		// usando o try with resources do Java 7, que fecha o que abriu
+		try (Connection conn = obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+			stm.setString(1, getNome());
+			stm.setString(2, getFone());
+			stm.setString(3, getEmail());
+			stm.setInt(4, getId());
+			stm.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
