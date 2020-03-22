@@ -119,4 +119,25 @@ public class Pais {
 			e.printStackTrace();
 		}
 	}
+	
+	public void carregarPaises() {
+		String sqlSelect = "SELECT nome, populacao, area FROM pais WHERE pais.id = ?";
+
+		try (Connection conn = obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setInt(1, getId());
+			try (ResultSet rs = stm.executeQuery();) {
+				if (rs.next()) {
+					setNome(rs.getString("nome"));
+					setPopulacao(rs.getLong("fone"));
+					setArea(rs.getDouble("email"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+	}
+	
 }
