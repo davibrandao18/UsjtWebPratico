@@ -75,13 +75,12 @@ public class Pais {
 	// Obtendo conexao com o banco de dados
 	public Connection obtemConexao() throws SQLException {
 		return DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=''");
+				.getConnection("jdbc:mysql://localhost:3306/pais?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password='log009'");
 	}
 	
 	//Atualizar
 	public void atualizar() {
 		String sqlUpdate = "UPDATE cliente SET nome=?, fone=?, email=? WHERE id=?";
-		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conexao = obtemConexao();
 				PreparedStatement stm = conexao.prepareStatement(sqlUpdate);) {
 			stm.setString(1, getNome());
@@ -110,7 +109,6 @@ public class Pais {
 	
 	public void deletarPais() {
 		String sqlDelete = "DELETE FROM pais WHERE id = ?";
-
 		try (Connection conn = obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
 			stm.setInt(1, getId());
@@ -122,15 +120,14 @@ public class Pais {
 	
 	public void carregarPaises() {
 		String sqlSelect = "SELECT nome, populacao, area FROM pais WHERE pais.id = ?";
-
 		try (Connection conn = obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setInt(1, getId());
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
 					setNome(rs.getString("nome"));
-					setPopulacao(rs.getLong("fone"));
-					setArea(rs.getDouble("email"));
+					setPopulacao(rs.getLong("populacao"));
+					setArea(rs.getDouble("area"));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

@@ -11,7 +11,8 @@ import testesunitarios.Cliente;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PaisTeste {
-	
+	Pais pais, paisCopia;
+	static int id = 0;
 	
 @Before
 public void inserindo() throws Exception  {
