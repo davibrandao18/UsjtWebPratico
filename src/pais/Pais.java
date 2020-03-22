@@ -82,8 +82,8 @@ public class Pais {
 	public void atualizar() {
 		String sqlUpdate = "UPDATE cliente SET nome=?, fone=?, email=? WHERE id=?";
 		// usando o try with resources do Java 7, que fecha o que abriu
-		try (Connection conn = obtemConexao();
-				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+		try (Connection conexao = obtemConexao();
+				PreparedStatement stm = conexao.prepareStatement(sqlUpdate);) {
 			stm.setString(1, getNome());
 			stm.setLong(2, getPopulacao());
 			stm.setDouble(3, getArea());
