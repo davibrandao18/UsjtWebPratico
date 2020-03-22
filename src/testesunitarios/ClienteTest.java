@@ -2,7 +2,6 @@ package testesunitarios;
 
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
