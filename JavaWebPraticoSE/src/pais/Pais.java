@@ -84,7 +84,7 @@ public class Pais {
 	
 	//Atualizar
 	public void atualizar() {
-		String sqlUpdate = "UPDATE cliente SET nome=?, fone=?, email=? WHERE id=?";
+		String sqlUpdate = "UPDATE pais SET nome=?, populacao=?, area=? WHERE id=?";
 		try (Connection conexao = obtemConexao();
 				PreparedStatement stm = conexao.prepareStatement(sqlUpdate);) {
 			stm.setString(1, getNome());
@@ -141,4 +141,11 @@ public class Pais {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return 	"Nome: " + getNome() +
+				"   Populacao: " + getPopulacao() +
+				"   Área: " + getArea();
+		
+	}
 }

@@ -19,16 +19,16 @@ public class PaisTeste {
 		paisCopia = new Pais (id, "Jap�o", 126440000, 377975);
 		System.out.println(pais);
 		System.out.println(paisCopia);
-		System.out.println(id);
+		System.out.println("id: " + pais.getId());
 	}
 	
 	@Test
 	public void test00Carregar() {
 		System.out.println("Carregar");
 		Pais esperado = new Pais(1, "Jap�o", 126440000, 377975);
-		Pais retorno = new Pais();
+		Pais retorno = new Pais(1);
 		retorno.carregarPaises();
-		assertEquals("Testa Inclus�o", retorno, esperado);
+		assertEquals("Testa Inclus�o", esperado, retorno);
 	}
 	
 }
