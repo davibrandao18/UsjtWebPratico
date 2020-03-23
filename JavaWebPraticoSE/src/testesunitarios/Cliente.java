@@ -37,7 +37,7 @@ public class Cliente {
 	// Obtém conexão com o banco de dados
 	public Connection obtemConexao() throws SQLException {
 		return DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=log009");
+				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password='log009'");
 	}
 
 	public void criar() {
