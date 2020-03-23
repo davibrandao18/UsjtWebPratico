@@ -14,6 +14,10 @@ public class Pais {
 	
 	public Pais() {}
 	
+	public Pais(int id)  {
+		this.id = id;
+	}
+	
 	public Pais(int id, String nome, long populacao, double area) {
 		this.id = id;
 		this.nome = nome;
