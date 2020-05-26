@@ -14,7 +14,13 @@
 	        	<div id="navbar" class="navbar-collapse collapse">
 	               <ul class="nav navbar-nav navbar-right">
 	                   <li>
-	                   		<a href="index.jsp">Paises</a>
+	                   		<a href="listar_paises.do?acao=reiniciar">Paises</a>
+	                   </li>
+	                   <li>
+	                   		<a href="#">Paises</a>
+	                   </li>
+	                   <li>
+	                   		<a href="#">Paises</a>
 	                   </li>
 	               </ul>
 	           </div>
