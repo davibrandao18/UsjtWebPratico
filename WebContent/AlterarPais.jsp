@@ -20,7 +20,7 @@
         <div id="main" class="container">
         	<h3 class="page-header">Alterar Pais #${pais.id}</h3>
         	<!--  Formulário para alteração no Pais -->
-        	<form action="ManterPais.do" method="post">
+        	<form action="Controller.do" method="post">
         		<input type="hidden" name="id" value="${pais.id}"/>
         		
         		<!-- area de campos do form -->
@@ -44,8 +44,8 @@
 	            <hr />
 	            <div id="actions" class="row">
 	                <div class="col-md-12">
-	                    <button type="submit" class="btn btn-success" name="acao" value="Alterar">Salvar</button>
-	                    <a href="index.html" class="btn btn-danger">Cancelar</a>
+	                    <button type="submit" class="btn btn-success" name="command" value="AlterarPais">Salvar</button>
+	                    <a href="index.jsp" class="btn btn-danger">Cancelar</a>
 	                </div>
 	            </div>
         	</form>

@@ -21,7 +21,7 @@
 		<div id="main" class="container">
         	<h3 class="page-header">Cadastro de Pais</h3>
 	        <!-- Formulario para inclusao de clientes -->
-	        <form action="ManterPais.do" method="post">
+	        <form action="Controller.do" method="post">
 	        
 	            <!-- area de campos do form -->
 	            <div class="row">
@@ -44,7 +44,7 @@
 	            <hr />
 	            <div id="actions" class="row">
 	                <div class="col-md-12">
-	                    <button type="submit" class="btn btn-success" name="acao" value="Criar">Salvar</button>
+	                    <button type="submit" class="btn btn-success" name="command" value="CriarPais">Salvar</button>
 	                    <a href="index.html" class="btn btn-danger">Cancelar</a>
 	                </div>
 	            </div>

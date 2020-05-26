@@ -28,9 +28,9 @@
 						Deseja realmente excluir este Pais ?
 					</div>
 					<div class="modal-footer">
-						<form action="ManterPais.do" method="post">
-							<input type="hidden" name="id" id="id-excluir" />
-							<button type="submit" class="btn btn-primary" name="acao" value="Excluir"> Sim </button>
+						<form action="Controller.do" method="post">
+							<input type="hidden" name="id" id="id_excluir" />
+							<button type="submit" class="btn btn-primary" name="command" value="ExcluirPais"> Sim </button>
 							<button type="button" class="btn btn-default" data-dismiss="modal"> N&atilde;o </button>
 						</form>
 					</div>
@@ -43,7 +43,7 @@
 		
 		<!--  Container Principal -->
 		<div id="main" class="container">
-			<form action="Listar_paises.do" method="post">
+			<form action="Controller.do" method="post">
 				<div id="top" class="row">
 					<div class="col-md-3">
 						<h3>Paises</h3>
@@ -52,7 +52,7 @@
 						<div class="input-group h2">
 							<input name="busca" class="form-control" id="search" type="text" placeholder="Pesquisar Paises (deixe em branco para ver todos)">
 							<span class="input-group-btn">
-								<button class="btn btn-primary" type="submit" name="acao" value="buscar">
+								<button class="btn btn-primary" type="submit" name="command" value="ListarPaisesBuscar">
 									<span class="glyphicon glyphicon-search"></span>
 								</button>
 							</span>
@@ -89,9 +89,9 @@
 										<td>${pais.populacao}</td>
 										<td>${pais.area}</td>
 										<td class="actions">
-											<a class="btn btn-success btn-xs" href="ManterPais.do?acao=Visualizar&id=${pais.id}">
+											<a class="btn btn-success btn-xs" href="Controller.do?command=VisualizarPais&id=${pais.id}">
 											Visualizar</a>
-											<a class="btn btn-warning btn-xs" href="ManterPais.do?acao=Editar&id=${pais.id}">
+											<a class="btn btn-warning btn-xs" href="Controller.do?command=EditarPais&id=${pais.id}">
 											Editar</a>
 											<button id="${pais.id}" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-pais="${pais.id}">
 											Excluir</button>
